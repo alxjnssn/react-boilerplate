@@ -30,11 +30,14 @@ gulp.task('js', () => {
 
 /* ------------------------ BROWSER SYNC ------------------------ */
 
+const historyApiFallback = require('connect-history-api-fallback');
+
 gulp.task('bs', () => {
     browserSync.init({
         server: {
             baseDir: './'
-        }
+        },
+        middleware: [historyApiFallback()]
     });
 });
 
